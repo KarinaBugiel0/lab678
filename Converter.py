@@ -4,6 +4,7 @@ from Const import Const
 from ImpExp import ImpExp 
 from ImpJSON import ImpJSON 
 from ExpJSON import ExpJSON
+from ImpYML import ImpYML
 
 #from AllImpExp import *
 
@@ -64,7 +65,6 @@ class Converter:
             importer = ImpYML(self.inputFilePath)
         elif self.inputFileFormat == Const.GET_VALUE('TYPE_JSON'):
             importer = ImpJSON(self.inputFilePath)
-            print('IMPORT JSON')
         else:
             raise Exception(f'{Const.GET_ERROR("UNKNOWN_FORMAT")}: {self.inputFilePath}')
 
@@ -74,7 +74,6 @@ class Converter:
             exporter = ExpYML(self.outputFilePath)
         elif self.outputFileFormat == Const.GET_VALUE('TYPE_JSON'):
             exporter = ExpJSON(self.outputFilePath)
-            print('EXPORT JSON')
         else:
             raise Exception(f'{Const.GET_ERROR("UNKNOWN_FORMAT")}: {self.inputFilePath}')
 
