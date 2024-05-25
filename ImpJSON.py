@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
-import ImpExp
+from ImpExp import ImpExp 
+from Const import Const 
+import json
 
 class ImpJSON(ImpExp):
     def __init__(self, filename):
@@ -13,4 +15,4 @@ class ImpJSON(ImpExp):
             self.FetchData(new_data)
             self.ImportSuccessful()
         except Exception as e:
-            raise Exception(f"Error parsing JSON: {str(e)}")
+            raise Exception(f"{Const.GET_ERROR('ERROR_IMPJSON')} {str(e)}")

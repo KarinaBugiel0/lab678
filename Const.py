@@ -13,8 +13,8 @@ class Const(object):
                         'INVALID_NO_OF_ARGS'        : 'Invalid number of arguments, expected 2',
                         'RUN_OPERATION_UNDEFINED'   : 'Run operation in class of parent ImpExp has failed, because it was not defined. Please check Converter.Convert method',
                         'ERROR_IMPJSON'             : 'Error parsing JSON!',
-                        'ERROR_IMPYML'              : 'Error parsing YML!'',
-                        'ERROR_IMPXML'              : 'Error parsing XML!'',
+                        'ERROR_IMPYML'              : 'Error parsing YML!',
+                        'ERROR_IMPXML'              : 'Error parsing XML!',
                         'ERROR_EXPJSON'             : 'Error exporting to JSON!',
                         'ERROR_EXPYML'              : 'Error exporting to YML!',
                         'ERROR_EXPXML'              : 'Error exporting to XML!'}

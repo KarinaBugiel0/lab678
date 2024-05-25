@@ -2,6 +2,9 @@ import sys
 import os
 from Const import Const 
 from ImpExp import ImpExp 
+from ImpJSON import ImpJSON 
+from ExpJSON import ExpJSON
+
 #from AllImpExp import *
 
 class Converter:
@@ -52,24 +55,26 @@ class Converter:
             raise Exception(f'{Const.GET_ERROR("OTHER_EXCEPTION")}: {err=}, {type(err)=}')
 
     def Convert(self):
-        importer = ImpExp(self.inputFilePath)
-        exporter = ImpExp(outputFile)
+        #importer = ImpExp(self.inputFilePath)
+        #exporter = ImpExp(outputFile)
 
-        if inputFileFormat      == Const.GET_VALUE('TYPE_XML'):
-            importer = ImpJSON(self.inputFilePath)
-        elif inputFileFormat == Const.GET_VALUE('TYPE_YML'):
+        if self.inputFileFormat   == Const.GET_VALUE('TYPE_XML'):
+            importer = ImpXML(self.inputFilePath)
+        elif self.inputFileFormat == Const.GET_VALUE('TYPE_YML'):
             importer = ImpYML(self.inputFilePath)
-        elif inputFileFormat == Const.GET_VALUE('TYPE_JSON'):
+        elif self.inputFileFormat == Const.GET_VALUE('TYPE_JSON'):
             importer = ImpJSON(self.inputFilePath)
+            print('IMPORT JSON')
         else:
             raise Exception(f'{Const.GET_ERROR("UNKNOWN_FORMAT")}: {self.inputFilePath}')
 
-        if outputFileFormat      == Const.GET_VALUE('TYPE_XML'):
-            exporter = ExpXML(self.outputFileFormat)
-        elif outputFileFormat == Const.GET_VALUE('TYPE_YML'):
-            exporter = ExpYML(self.outputFileFormat)
-        elif outputFileFormat == Const.GET_VALUE('TYPE_JSON'):
-            exporter = ExpJSON(self.outputFileFormat)
+        if self.outputFileFormat   == Const.GET_VALUE('TYPE_XML'):
+            exporter = ExpXML(self.outputFilePath)
+        elif self.outputFileFormat == Const.GET_VALUE('TYPE_YML'):
+            exporter = ExpYML(self.outputFilePath)
+        elif self.outputFileFormat == Const.GET_VALUE('TYPE_JSON'):
+            exporter = ExpJSON(self.outputFilePath)
+            print('EXPORT JSON')
         else:
             raise Exception(f'{Const.GET_ERROR("UNKNOWN_FORMAT")}: {self.inputFilePath}')
 
